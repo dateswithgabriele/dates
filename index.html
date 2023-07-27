@@ -57,7 +57,7 @@
 
     <div>
         <div id="ideaDisplay">Press the button to generate a date idea!</div>
-        <img id="ideaImage" src="" alt="Image related to date idea">
+        <img id="ideaImage" src="" alt="Image related to date idea" style="display: none;">
         <button id="generateButton">Generate Idea</button>
     </div>
 
@@ -67,7 +67,7 @@
             var ideas = [
                 { idea: 'Wasserfallen Reigoldswil', image: 'wasserfallen.jpg' },
                 { idea: 'Minigolf', image: 'minigolf.jpg' },
-                { idea: 'Gleitschirmfliegen', image: 'gleitschirmfliegen.jpg },
+                { idea: 'Gleitschirmfliegen', image: 'gleitschirmfliegen.jpg' },
                 { idea: 'Schlittschuhlaufen', image: 'URL_to_image_3' },
                 { idea: 'Europapark', image: 'URL_to_image_3' },
                 { idea: 'Wine-tasting', image: 'URL_to_image_3' },
@@ -120,15 +120,14 @@
                 { idea: 'Schlammbad', image: 'URL_to_image_3' },              
             ];
 
-            document.getElementById('generateButton').onclick = function() {
             var randomIndex = Math.floor(Math.random() * ideas.length);
             var randomIdea = ideas[randomIndex];
             document.getElementById('ideaDisplay').innerText = randomIdea.idea;
             var imageElement = document.getElementById('ideaImage');
             imageElement.src = randomIdea.image;
-            imageElement.hidden = false;  // Show the image
-            }
+            imageElement.style.display = 'block'; // Show the image
         };
+
     </script>
 </body>
 </html>
