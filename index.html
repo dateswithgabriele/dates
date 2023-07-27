@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        #ideaDisplay {
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #generateButton {
+            font-size: 18px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #4285F4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 40px;
+        }
+
+        #generateButton:hover {
+            background-color: #2b7de9;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div>
+        <div id="ideaDisplay">Press the button to generate a date idea!</div>
+        <img id="ideaImage" src="" alt="Image related to date idea">
+        <button id="generateButton">Generate Idea</button>
+    </div>
+
+
+    <script>
+        document.getElementById('generateButton').onclick = function() {
+            var ideas = [
+                { idea: 'Wasserfallen Reigoldswil', image: 'URL_to_image_1' },
+                { idea: 'Minigolf', image: 'URL_to_image_2' },
+                { idea: 'Gleitschirmfliegen', image: 'URL_to_image_3' },
+                { idea: 'Schlittschuhlaufen', image: 'URL_to_image_3' },
+                { idea: 'Europapark', image: 'URL_to_image_3' },
+                { idea: 'Wine-tasting', image: 'URL_to_image_3' },
+                { idea: 'Gin-tasting', image: 'URL_to_image_3' },
+                { idea: 'Picknick', image: 'URL_to_image_3' },
+                { idea: 'Tagesausflug: Blausee', image: 'URL_to_image_3' },
+                { idea: 'Tagesausflug: Rheinfall', image: 'URL_to_image_3' },
+                { idea: 'Tagesausflug: Höllgrotten', image: 'URL_to_image_3' },
+                { idea: 'Tagesausflug: Luzern', image: 'URL_to_image_3' },
+                { idea: 'Tagesausflug: Titisee', image: 'URL_to_image_3' },
+                { idea: 'Tagesausflug: Trümmelbach', image: 'URL_to_image_3' },
+                { idea: 'Tagesausflug: Aareschlucht', image: 'URL_to_image_3' },
+                { idea: 'Tagesausflug: Brienz', image: 'URL_to_image_3' },
+                { idea: 'Rave', image: 'URL_to_image_3' },
+                { idea: 'Zoo', image: 'URL_to_image_3' },
+                { idea: 'Barfussparkour', image: 'URL_to_image_3' },
+                { idea: 'Movienight', image: 'URL_to_image_3' },
+                { idea: 'Museum', image: 'URL_to_image_3' },
+                { idea: 'Kochen/Backen', image: 'URL_to_image_3' },
+                { idea: 'Bouldern', image: 'URL_to_image_3' },
+                { idea: 'Gamen', image: 'URL_to_image_3' },
+                { idea: 'Theater', image: 'URL_to_image_3' },
+                { idea: 'Kino', image: 'URL_to_image_3' },
+                { idea: 'Escape Room', image: 'URL_to_image_3' },
+                { idea: 'Konzert', image: 'URL_to_image_3' },
+                { idea: 'Spa', image: 'URL_to_image_3' },
+                { idea: 'Wasserpark', image: 'URL_to_image_3' },
+                { idea: 'Bowling', image: 'URL_to_image_3' },
+                { idea: 'Billiard', image: 'URL_to_image_3' },
+                { idea: 'Tischtennis', image: 'URL_to_image_3' },
+                { idea: 'Trampolin Park', image: 'URL_to_image_3' },
+                { idea: 'Aquarium', image: 'URL_to_image_3' },
+                { idea: 'Planetarium', image: 'URL_to_image_3' },
+                { idea: 'Wine & Paint', image: 'URL_to_image_3' },
+                { idea: 'Cocktails mixen', image: 'URL_to_image_3' },
+                { idea: 'Augusta Raurica', image: 'URL_to_image_3' },
+                { idea: 'Drive-in movie night', image: 'URL_to_image_3' },
+                { idea: 'Papillorama', image: 'URL_to_image_3' },
+                { idea: 'Kletterpark', image: 'URL_to_image_3' },
+                { idea: 'Windtunnel', image: 'URL_to_image_3' },
+                { idea: 'Technorama', image: 'URL_to_image_3' },
+                { idea: 'Poetry Slam', image: 'URL_to_image_3' },
+                { idea: 'Brunch', image: 'URL_to_image_3' },
+                { idea: 'Erdbeeren pflücken', image: 'URL_to_image_3' },
+                { idea: 'Themed photoshoot', image: 'URL_to_image_3' },
+                { idea: 'Grillen auf dem Schloss', image: 'URL_to_image_3' },
+                { idea: 'Pokern', image: 'URL_to_image_3' },
+                { idea: 'Herbstmesse', image: 'URL_to_image_3' },
+                { idea: 'Planetarium', image: 'URL_to_image_3' },               
+                { idea: 'Schlammbad', image: 'URL_to_image_3' },              
+            ];
+
+            document.getElementById('generateButton').onclick = function() {
+            var randomIndex = Math.floor(Math.random() * ideas.length);
+            var randomIdea = ideas[randomIndex];
+            document.getElementById('ideaDisplay').innerText = randomIdea.idea;
+            var imageElement = document.getElementById('ideaImage');
+            imageElement.src = randomIdea.image;
+            imageElement.hidden = false;  // Show the image
+            }
+        };
+    </script>
+</body>
+</html>
