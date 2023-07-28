@@ -63,9 +63,8 @@
 
 
     <script>
-        document.getElementById('generateButton').onclick = function() {
             var ideas = [
-                { idea: 'Wasserfallen Reigoldswil', image: 'wasserfallen.jpg' },
+                { idea: 'Wasserfallen Reigoldswil', image: './wasserfallen.jpg' },
                 { idea: 'Minigolf', image: 'minigolf.jpg' },
                 { idea: 'Gleitschirmfliegen', image: 'gleitschirmfliegen.jpg' },
                 { idea: 'Schlittschuhlaufen', image: 'schlittschuh.jpg' },
@@ -117,16 +116,28 @@
                 { idea: 'Pokern', image: 'poker.jpg' },
                 { idea: 'Herbstmesse', image: 'herbstmesse.jpg' },            
                 { idea: 'Schlammbad', image: 'schlammbad.jpg' },              
-            ];
+                ];
 
-            var randomIndex = Math.floor(Math.random() * ideas.length);
-            var randomIdea = ideas[randomIndex];
-            document.getElementById('ideaDisplay').innerText = randomIdea.idea;
-            var imageElement = document.getElementById('ideaImage');
-            imageElement.src = randomIdea.image;
-            imageElement.style.display = 'block'; // Show the image
-        };
+                var currentIdeas = [...ideas];  // Copy of the array to manipulate
 
+document.getElementById('generateButton').addEventListener('click', function() {
+    if (currentIdeas.length === 0) {
+        // All ideas have been shown, refill the array
+        currentIdeas = [...ideas];
+    }
+
+    var randomIndex = Math.floor(Math.random() * currentIdeas.length);
+    var randomIdea = currentIdeas[randomIndex];
+
+    // Remove this idea so it won't be selected again until all ideas have been shown
+    currentIdeas.splice(randomIndex, 1);
+
+    document.getElementById('ideaDisplay').innerText = randomIdea.idea;
+    var imageElement = document.getElementById('ideaImage');
+    imageElement.src = randomIdea.image;
+    imageElement.style.display = 'block';  // Show the image
+});
+            
     </script>
 </body>
 </html>
